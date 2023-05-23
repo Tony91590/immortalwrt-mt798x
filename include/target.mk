@@ -46,12 +46,13 @@ DEFAULT_PACKAGES.router:=\
 	dnsmasq-full \
 	firewall \
 	iptables \
+	ipv6helper \
 	ppp \
 	ppp-mod-pppoe
 # For easy usage
 DEFAULT_PACKAGES.tweak:=\
 	block-mount \
-	default-settings-ntp \
+	default-settings \
 	kmod-ipt-raw \
 	kmod-nf-nathelper \
 	kmod-nf-nathelper-extra \
