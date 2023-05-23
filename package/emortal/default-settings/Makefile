@@ -27,7 +27,7 @@ define Package/default-settings
   DEPENDS:=+luci-lib-base
 endef
 
-define Package/default-settings-chn
+define Package/default-settings-ntp
   $(Package/default-settings)
   TITLE+= (Optimize for CHN users)
   DEPENDS:=+default-settings +@LUCI_LANG_zh_Hans +luci-i18n-base-zh-cn
@@ -43,7 +43,7 @@ endef
 
 define Package/default-settings-chn/install
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(INSTALL_BIN) ./files/99-default-settings-chinese $(1)/etc/uci-defaults/
+	$(INSTALL_BIN) ./files/99-default-settings-ntp $(1)/etc/uci-defaults/
 
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	po2lmo ./i18n/default.zh_Hans.po $(1)/usr/lib/lua/luci/i18n/default.zh-cn.lmo
@@ -51,4 +51,4 @@ define Package/default-settings-chn/install
 endef
 
 $(eval $(call BuildPackage,default-settings))
-$(eval $(call BuildPackage,default-settings-chn))
+$(eval $(call BuildPackage,default-settings-ntp))
