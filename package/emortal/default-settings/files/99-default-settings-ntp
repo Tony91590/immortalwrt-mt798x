@@ -9,6 +9,4 @@ uci -q batch <<-EOF
 EOF
 uci commit system
 
-sed -i 's,downloads.immortalwrt.org,downloads.openwrt.org,g' /etc/opkg/distfeeds.conf
-
 exit 0
