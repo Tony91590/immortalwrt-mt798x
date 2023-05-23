@@ -41,7 +41,7 @@ define Package/default-settings/install
 	$(INSTALL_BIN) ./files/99-default-settings $(1)/etc/uci-defaults/
 endef
 
-define Package/default-settings-chn/install
+define Package/default-settings-ntp/install
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/99-default-settings-ntp $(1)/etc/uci-defaults/
 
