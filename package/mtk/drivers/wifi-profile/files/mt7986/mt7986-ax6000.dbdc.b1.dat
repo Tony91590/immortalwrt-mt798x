@@ -450,7 +450,6 @@ backhaul=0;1;0;0;0
 band=5G
 device=MT7986_1_2
 idle_timeout_interval=0
-mesh_model=RB06
 own_ip_addr=192.168.1.1
 session_timeout_interval=0
 vifidx=1;2;3;4;0
