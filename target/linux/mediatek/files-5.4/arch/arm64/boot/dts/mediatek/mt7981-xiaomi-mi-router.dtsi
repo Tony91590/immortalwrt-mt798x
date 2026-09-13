@@ -67,16 +67,6 @@
 		#address-cells = <1>;
 		#size-cells = <0>;
 	};
-
-	nmbm_spim_nand: nmbm_spim_nand {
-		compatible = "generic,nmbm";
-
-		#address-cells = <1>;
-		#size-cells = <1>;
-
-		lower-mtd-device = <&spi_nand>;
-		forced-create;
-	};
 };
 
 &eth {
@@ -184,10 +174,7 @@
 		spi-max-frequency = <52000000>;
 		spi-tx-bus-width = <4>;
 		spi-rx-bus-width = <4>;
-	};
-};
 
-&nmbm_spim_nand {
 		partitions: partitions {
 			compatible = "fixed-partitions";
 			#address-cells = <1>;
@@ -228,6 +215,7 @@
 				reg = <0x5c0000 0x40000>;
 			};
 		};
+	};
 };
 
 &pio {
