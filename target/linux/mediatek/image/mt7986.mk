@@ -371,14 +371,18 @@ define Device/xiaomi_redmi-router-ax6000
   DEVICE_DTS_DIR := $(DTS_DIR)/mediatek
   DEVICE_PACKAGES := kmod-leds-ws2812b
   SUPPORTED_DEVICES := xiaomi,redmi-router-ax6000
+
   UBINIZE_OPTS := -E 5
   BLOCKSIZE := 128k
   PAGESIZE := 2048
-  IMAGE_SIZE := 112640k
+  IMAGE_SIZE := 125440k
   KERNEL_IN_UBI := 1
-  IMAGES += factory.bin
-  IMAGE/factory.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
-  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  UBOOTENV_IN_UBI := 1
+  IMAGES := sysupgrade.itb
+  IMAGE/sysupgrade.itb := append-kernel | \
+    fit gzip $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb external-static-with-rootfs | \
+    append-metadata
+
 endef
 TARGET_DEVICES += xiaomi_redmi-router-ax6000
 
